@@ -1,2 +1,2 @@
-discord==0.16.12
+Discord==0.0.2
 asyncio
