@@ -1,7 +1,8 @@
 import discord
 import asyncio
+import logging
 
-client = discord.Client()
+connected_servers = dict
 
 @client.event
 async def on_ready():
@@ -12,9 +13,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    # Prints output of chat to console bot is running in
+    # Bot only logs chats it has perms to read.
+    # Prints output of chat to console bot is running in.
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
 
+    # Logs output of chats exposed to Bot in flatfile DB.
 
 
 
@@ -36,8 +39,6 @@ async def on_message(message):
     if message.content.startswith('!find'):
         member = find(lambda m: m.name == 'Mighty', channel.server.members)
 
-async def on_ready(parameter_list):
-    print('joined', client.server.count)
 
 async def on_error():
     print('Fatal Error')
