@@ -2,7 +2,7 @@ import discord
 import asyncio
 import logging
 
-connected_servers = dict
+client = discord.Client()
 
 @client.event
 async def on_ready():
