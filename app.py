@@ -17,7 +17,12 @@ async def on_message(message):
     # Prints output of chat to console bot is running in.
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
 
+    if message.content.startswith('!warn'):
+
+
     # Logs output of chats exposed to Bot in flatfile DB.
+
+
 
 
 
