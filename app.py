@@ -14,10 +14,15 @@ async def on_ready():
 @client.event
 async def on_message(message):
     # Bot only logs chats it has perms to read.
-    # Prints output of chat to console bot is running in.
+    # Prints output of chat to console botis running in.
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
 
-    # Logs output of chats exposed to Bot in flatfile DB.
+    # Help menu for those new to the bot.abs
+
+    if message.content.startswith('!help'):
+        await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
+    
+    # Simple Ping Command.
     if message.content.startswith('!ping'):
        await client.send_message(message.channel, 'Pong!')
 
