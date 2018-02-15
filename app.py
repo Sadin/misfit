@@ -17,9 +17,6 @@ async def on_message(message):
     # Prints output of chat to console bot is running in.
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
 
-    if message.content.startswith('!warn'):
-
-
     # Logs output of chats exposed to Bot in flatfile DB.
 
 
@@ -33,7 +30,7 @@ async def on_message(message):
         async for log in client.logs_from(message.channel, limit=100):
             if log.author == message.author:
                 counter += 1
-        await client.edit_message(tmp, 'You have {} messages on this server since ive joined, @{}'.format(counter, message.author))
+        await client.edit_message(tmp, 'You have sent {} messages when ive been online, @{}'.format(counter, message.author))
         print(message.author, 'told me to count messages in', message.channel, 'chat, on ', message.server)
     elif message.content.startswith('!sleep'):
         await asyncio.sleep(5)
@@ -42,7 +39,7 @@ async def on_message(message):
 
     # does nothing right now
     if message.content.startswith('!find'):
-        member = find(lambda m: m.name == 'Mighty', channel.server.members)
+        member = find(lambda m: m.name == '', channel.server.members)
 
 
 async def on_error():
