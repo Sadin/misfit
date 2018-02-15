@@ -18,7 +18,8 @@ async def on_message(message):
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
 
     # Logs output of chats exposed to Bot in flatfile DB.
-
+    if message.content.startswith('!ping'):
+       await client.send_message(message.channel, 'Pong!')
 
 
 
