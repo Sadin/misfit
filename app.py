@@ -17,6 +17,9 @@ async def on_message(message):
     # Prints output of chat to console botis running in.
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
 
+    # Duplicated all messages to the #Logs Channel
+    if message.content()
+
     # Help menu for those new to the bot.abs
 
     if message.content.startswith('!help'):
