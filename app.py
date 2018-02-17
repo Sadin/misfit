@@ -10,17 +10,25 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
+    await client.change_presence(game=discord.Game(name='with unwanted toys'))
+
 
 @client.event
 async def on_message(message):
+    # Establish Logging channel
+    channel = 413799927622139937
+    print(channel)
+
+
     # Bot only logs chats it has perms to read.
     # Prints output of chat to console botis running in.
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
-
+    print(message.type)
     # Duplicated all messages to the #Logs Channel
-    if message.content()
 
-    # Help menu for those new to the bot.abs
+    
+    
+    #Help menu for those new to the bot.abs
 
     if message.content.startswith('!help'):
         await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
