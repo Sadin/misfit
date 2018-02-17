@@ -12,6 +12,11 @@ async def on_ready():
     print('------')
     await client.change_presence(game=discord.Game(name='with unwanted toys'))
 
+@client.event
+async def on_member_join(member):
+    server = member.server
+    fmt = 'Welcome {0.mention} to {1.name}!'
+    await client.send_message(server, fmt.format(member, server))
 
 @client.event
 async def on_message(message):
@@ -26,19 +31,15 @@ async def on_message(message):
     print(message.type)
     # Duplicated all messages to the #Logs Channel
 
-    
-    
-    #Help menu for those new to the bot.abs
 
+    #Help menu for those new to the bot.abs
     if message.content.startswith('!help'):
         await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
+        await client.send_message(message.channel, 'I sent you a DM.')
     
     # Simple Ping Command.
     if message.content.startswith('!ping'):
        await client.send_message(message.channel, 'Pong!')
-
-
-
 
     # looks for !test command
     if message.content.startswith('!test'):
