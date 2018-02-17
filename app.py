@@ -12,6 +12,7 @@ async def on_ready():
     print('------')
     await client.change_presence(game=discord.Game(name='with unwanted toys'))
 
+# welcomes new user
 @client.event
 async def on_member_join(member):
     server = member.server
