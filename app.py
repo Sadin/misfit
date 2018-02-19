@@ -5,7 +5,7 @@ import logging
 client = discord.Client()
 
 @client.event
-async def on_ready():
+async def on_ready(client):
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
