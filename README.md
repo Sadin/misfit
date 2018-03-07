@@ -22,3 +22,5 @@ A discord bot built on discord.py that is specialized to run the discord server 
 ### Contributing
 
 If interested in helping out please add **zook#6532** on discord and fork the repo.
+
+```pip install -r requirements.txt```
