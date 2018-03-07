@@ -5,11 +5,10 @@ import logging
 client = discord.Client()
 
 @client.event
-async def on_ready(client):
+async def on_ready():
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
-    print('------')
     await client.change_presence(game=discord.Game(name='with unwanted toys'))
 
 # welcomes new user
