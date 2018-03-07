@@ -14,6 +14,7 @@ A discord bot built on discord.py that is specialized to run the discord server 
 * !help - DMs user who issued command a link to the wiki page.
 * !ping - pong¡
 
-* !ganggang - A new experimental command :D
-
+* !ganggang - A new experimental command developed on the idea of a call to arms for wow content.
+	1. !ganggang join - bot will add you to @ganggang group on discord
+	2. !ganggang leave - unsubscribe your discord account
 * !test - counts messages sent by user while bot is listening and displays them.
