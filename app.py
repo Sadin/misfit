@@ -36,7 +36,7 @@ async def on_message(message):
     if message.content.startswith('!help'):
         await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
         await client.send_message(message.channel, 'I sent you a DM.')
-    
+
     # Simple Ping Command.
     if message.content.startswith('!ping'):
        await client.send_message(message.channel, 'Pong!')
@@ -55,9 +55,9 @@ async def on_message(message):
         await client.send_message(message.channel, 'Done sleeping')
         print(message.author, 'in', message.channel, 'chat, on ', message.server, ', told me to sleep')
 
-    # does nothing right now
-    if message.content.startswith('!find'):
-        member = find(lambda m: m.name == '', channel.server.members)
+    if message.content.startswith('!announce')
+        await asyncio.sleep(1)
+        
 
 
 async def on_error():
