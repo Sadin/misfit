@@ -6,6 +6,13 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
+    print("""
+       _     ___ _ _   
+ _____|_|___|  _|_| |_ 
+|     | |_ -|  _| |  _|
+|_|_|_|_|___|_| |_|_| 
+    
+    """)
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
@@ -55,10 +62,8 @@ async def on_message(message):
         await client.send_message(message.channel, 'Done sleeping')
         print(message.author, 'in', message.channel, 'chat, on ', message.server, ', told me to sleep')
 
-    if message.content.startswith('!announce')
+    if message.content.startswith('!announce'):
         await asyncio.sleep(1)
-        
-
 
 async def on_error():
     print('Fatal Error')
