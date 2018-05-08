@@ -27,7 +27,7 @@ async def on_member_join(member):
 async def on_message(message):
     # Establish Logging channel
     if not message.channel == client.get_channel('413799927622139937'):
-        await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} | {message.author.strip("@")}: {str(message.content)}')
+        await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} | {str(message.author.strip("@"))}: {str(message.content)}')
 
 
         # Bot only logs chats it has perms to read.
