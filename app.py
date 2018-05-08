@@ -28,7 +28,7 @@ async def on_message(message):
     # Establish Logging channel
     if not message.channel == client.get_channel('413799927622139937'):
         message_author = str(message.author)
-        await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} | { message_author.strip("@")}: {str(message.content)}')
+        await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} in {message.channel} | { message_author.strip("@")}: {str(message.content)}')
 
 
         # Bot only logs chats it has perms to read.
