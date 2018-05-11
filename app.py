@@ -30,6 +30,8 @@ async def on_message(message):
         message_author = str(message.author)
         message_channel = '#' + str(message.channel)
         await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} in {message_channel} | { message_author.strip("@")}: {str(message.content)}')
+        await with open(./logs/logfile.csv, 'a') as f:
+            print('logged')
 
 
         # Bot only logs chats it has perms to read.
