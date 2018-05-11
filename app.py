@@ -1,6 +1,5 @@
-import discord
-import asyncio
-import logging
+import discord, asyncio, logging
+from datetime import datetime
 
 client = discord.Client()
 
