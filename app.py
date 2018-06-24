@@ -18,6 +18,7 @@ async def on_ready():
     print(f'Login successful...\nusername:{client.user.name} | id:{client.user.id}')
     await client.change_presence(game=discord.Game(name='with dodgeballs'))
 
+"""
 def log_to_discord():
     message_author = str(message.author)
     message_channel = '#' + str(message.channel)
@@ -30,7 +31,7 @@ def log_to_discord():
     print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
     print(message.type)
     # Duplicated all messages to the #Logs Channel
-
+"""
 
 # welcomes new user
 @client.event
