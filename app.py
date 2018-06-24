@@ -18,6 +18,20 @@ async def on_ready():
     print(f'Login successful...\nusername:{client.user.name} | id:{client.user.id}')
     await client.change_presence(game=discord.Game(name='with unwanted toys'))
 
+def log_to_discord()
+    message_author = str(message.author)
+    message_channel = '#' + str(message.channel)
+    await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} in {message_channel} | { message_author.strip("@")}: {str(message.content)}')
+
+
+
+    # Bot only logs chats it has perms to read.
+    # Prints output of chat to console botis running in.
+    print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
+    print(message.type)
+    # Duplicated all messages to the #Logs Channel
+
+
 # welcomes new user
 @client.event
 async def on_member_join(member):
@@ -29,17 +43,6 @@ async def on_member_join(member):
 async def on_message(message):
     # Establish Logging channel
     if not message.channel == client.get_channel('413799927622139937'):
-        message_author = str(message.author)
-        message_channel = '#' + str(message.channel)
-        await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} in {message_channel} | { message_author.strip("@")}: {str(message.content)}')
-
-
-
-        # Bot only logs chats it has perms to read.
-        # Prints output of chat to console botis running in.
-        print('{}, sent by: {}, @ {}, in {} | #{}\n'.format(message.content, message.author, message.timestamp, message.server, message.channel))
-        print(message.type)
-        # Duplicated all messages to the #Logs Channel
 
 
         #Help menu for those new to the bot.abs
