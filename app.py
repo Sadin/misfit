@@ -16,7 +16,7 @@ async def on_ready():
 |__/      \_______/   \___/   \_______/|__/  |__/ \_______/|_______/`
     """)
     print(f'Login successful...\nusername:{client.user.name} | id:{client.user.id}')
-    await client.change_presence(game=discord.Game(name='with unwanted toys'))
+    await client.change_presence(game=discord.Game(name='with dodgeballs'))
 
 def log_to_discord()
     message_author = str(message.author)
@@ -65,6 +65,9 @@ async def on_message(message):
         print(message.author, 'in', message.channel, 'chat, on ', message.server, ', told me to sleep')
 
     if message.content.startswith('!announce'):
+        await asyncio.sleep(1)
+
+    if message.content.startswith('!gg'):
         await asyncio.sleep(1)
 
 async def on_error():
