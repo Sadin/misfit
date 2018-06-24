@@ -41,37 +41,31 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
-    # Establish Logging channel
-    if not message.channel == client.get_channel('413799927622139937'):
+    #Help menu for those new to the bot.abs
+    if message.content.startswith('!help'):
+        await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
+        await client.send_message(message.channel, 'I sent you a DM.')
 
+    # Simple Ping Command.
+    if message.content.startswith('!ping'):
+        await client.send_message(message.channel, 'Pong!')
 
-        #Help menu for those new to the bot.abs
-        if message.content.startswith('!help'):
-            await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
-            await client.send_message(message.channel, 'I sent you a DM.')
+    # looks for !test command
+    if message.content.startsswith('!test'):
+        counter = 0
+        tmp = await client.send_message(message.channel, 'Calculating messages...')
+        async for log in client.logs_from(message.channel, limit=100):
+            if log.author == message.author:
+                counter += 1
+        await client.edit_message(tmp, 'You have sent {} messages when ive been online, @{}'.format(counter, message.author))
+        print(message.author, 'told me to count messages in', message.channel, 'chat, on ', message.server)
+    elif message.content.startswith('!sleep'):
+        await asyncio.sleep(5)
+        await client.send_message(message.channel, 'Done sleeping')
+        print(message.author, 'in', message.channel, 'chat, on ', message.server, ', told me to sleep')
 
-        # Simple Ping Command.
-        if message.content.startswith('!ping'):
-            await client.send_message(message.channel, 'Pong!')
-
-        # looks for !test command
-        if message.content.startswith('!test'):
-            counter = 0
-            tmp = await client.send_message(message.channel, 'Calculating messages...')
-            async for log in client.logs_from(message.channel, limit=100):
-                if log.author == message.author:
-                    counter += 1
-            await client.edit_message(tmp, 'You have sent {} messages when ive been online, @{}'.format(counter, message.author))
-            print(message.author, 'told me to count messages in', message.channel, 'chat, on ', message.server)
-        elif message.content.startswith('!sleep'):
-            await asyncio.sleep(5)
-            await client.send_message(message.channel, 'Done sleeping')
-            print(message.author, 'in', message.channel, 'chat, on ', message.server, ', told me to sleep')
-
-        if message.content.startswith('!announce'):
-            await asyncio.sleep(1)
-    else:
-        print(f'Will not log chats sent to #logs')
+    if message.content.startswith('!announce'):
+        await asyncio.sleep(1)
 
 async def on_error():
     print('Fatal Error')
