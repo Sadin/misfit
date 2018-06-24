@@ -38,7 +38,6 @@ async def on_member_join(member):
     server = member.server
     fmt = 'Welcome {0.mention} to {1.name}!'
     await client.send_message(server, fmt.format(member, server))
-    await client.send_message(member, "Hey there Champ my name is Patches O'Houlihan feel free to type '!help' here or in the server for more info")
 
 @client.event
 async def on_message(message):
