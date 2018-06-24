@@ -18,7 +18,7 @@ async def on_ready():
     print(f'Login successful...\nusername:{client.user.name} | id:{client.user.id}')
     await client.change_presence(game=discord.Game(name='with dodgeballs'))
 
-def log_to_discord()
+def log_to_discord():
     message_author = str(message.author)
     message_channel = '#' + str(message.channel)
     await client.send_message(client.get_channel('413799927622139937'), f'{message.timestamp} in {message_channel} | { message_author.strip("@")}: {str(message.content)}')
