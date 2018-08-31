@@ -44,33 +44,39 @@ async def on_member_join(member):
 async def on_message(message):
     #Help menu for those new to the bot.abs
     if message.content.startswith('!help'):
+        await client.send_typing(message.channel)
         await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
         await client.send_message(message.channel, 'I sent you a DM.')
 
     # Simple Ping Command.
     if message.content.startswith('!ping'):
+        await client.send_typing(message.channel)
         await client.send_message(message.channel, 'Pong!')
-
-    # looks for !test command
-    if message.content.startsswith('!test'):
-        counter = 0
-        tmp = await client.send_message(message.channel, 'Calculating messages...')
-        async for log in client.logs_from(message.channel, limit=100):
-            if log.author == message.author:
-                counter += 1
-        await client.edit_message(tmp, 'You have sent {} messages when ive been online, @{}'.format(counter, message.author))
-        print(message.author, 'told me to count messages in', message.channel, 'chat, on ', message.server)
-    elif message.content.startswith('!sleep'):
-        await asyncio.sleep(5)
-        await client.send_message(message.channel, 'Done sleeping')
-        print(message.author, 'in', message.channel, 'chat, on ', message.server, ', told me to sleep')
 
     if message.content.startswith('!announce'):
         await asyncio.sleep(1)
 
     if message.content.startswith('!gg'):
+
+        # Show bot is doing something
+        await client.send_typing(message.channel)
+
+        member = message.author
+        member_name = str(member).split('#')[0].capitalize() 
+        
+        await client.send_message(message.channel, f'Oh! { member_name } do you want to join the ganggang? ( type "yes" to confirm )')
+
+        msg = await client.wait_for_message(author=message.author, content='yes')
+
+        if msg:
+            await client.send_typing(message.channel)
+            role = discord.utils.get(message.author.server.roles, name="ganggang")
+
+        await client.add_roles(member, role)
         await asyncio.sleep(1)
+        await client.send_message(message.channel, f'{ member_name }, you\'re now subscribed to ganggang BOIIIIII!' )
 
 async def on_error():
     print('Fatal Error')
 client.run('Mzk3NTU4OTUwNjcwNzYxOTg0.DSyFeA.V8CdO3o69Be8XUcFhAvhLddGYzQ')
+
