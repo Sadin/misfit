@@ -42,6 +42,7 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
+    print( str( message.author ).split('#')[0] + ': ' + str(message.content))
     #Help menu for those new to the bot.abs
     if message.content.startswith('!help'):
         await client.send_typing(message.channel)
@@ -74,6 +75,7 @@ async def on_message(message):
 
         await client.add_roles(member, role)
         await asyncio.sleep(1)
+        print(f'Added { member_name } | { message.author } to @ganggang')
         await client.send_message(message.channel, f'{ member_name }, you\'re now subscribed to ganggang BOIIIIII!' )
 
 async def on_error():
