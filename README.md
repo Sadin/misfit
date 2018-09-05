@@ -9,13 +9,15 @@
 |__/      \_______/   \___/   \_______/|__/  |__/ \_______/|_______/
 ```
 
-A discord bot built on discord.py that is specialized to run the discord server of the Misfit Toys guild on WoW @ Trollbane.
+A discord bot built on discord.py that is specialized to run the discord server of the Patchwork guild on WoW @ Trollbane.
 
 ### Commands
 
 * !help - DMs user who issued command a link to the wiki page.
 * !ping - pong¡
 
-* !test - counts messages sent by user while bot is listening and displays them.
+* !gg   - Used for subscribing user to #gang_gang text channel for running content with other content junkies
+            * Sub commands yet to be implemented
 
+* !test - counts messages sent by user while bot is listening and displays them.
 
