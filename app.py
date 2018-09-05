@@ -2,6 +2,7 @@ import discord, asyncio, logging
 from datetime import datetime
 
 client = discord.Client()
+stack = []
 
 @client.event
 async def on_ready():
@@ -22,13 +23,18 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     server = member.server
+
+    # log member join to stack
+    stack.append(f'{ member } joined the server')
+
     fmt = 'Welcome {0.mention} to {1.name}!'
     await client.send_message(server, fmt.format(member, server))
 
 @client.event
 async def on_message(message):
+    stack.append(f'{ message.author }: { message.content }')
     print( str( message.author ).split('#')[0] + ': ' + str(message.content))
-    #Help menu for those new to the bot.abs
+    # Help menu for those new to the bot
     if message.content.startswith('!help'):
         await client.send_typing(message.channel)
         await client.send_message(message.author, 'https://github.com/Sadin/misfit/wiki/Help')
@@ -67,13 +73,31 @@ async def on_message(message):
         print(f'Added { member_name } | { message.author } to @ganggang')
         await client.send_message(message.channel, f'{ member_name }, you\'re now subscribed to ganggang BOIIIIII!' )
 
+    # give user the stack
+    if message.content.startswith('!traceback'):
+        print('Logging message stack to discord... ( last 10 items )')
+        await client.send_typing(message.channel)
+        temp_stack = stack.reverse()
+        for item in range(9):
+            print(temp_stack[item])
+            await client.send_message(item)
+        print('Stack dump complete')
+        temp_stack = None
+
 async def on_error():
     print('Fatal Error')
 client.run('Mzk3NTU4OTUwNjcwNzYxOTg0.DSyFeA.V8CdO3o69Be8XUcFhAvhLddGYzQ')
 
+# takes a string, breaks it into parts and formats it for actions/logging.
 def parse_text(message):
     
-    messageBody = message.rsplit(message)
+    formatted = message.rsplit(message)
 
-    return 
+    return formatted
+
+def log_event(eventData):
+    event = parse_text(eventData)
+
+    stack.append(event)
+
 
