@@ -77,10 +77,10 @@ async def on_message(message):
     if message.content.startswith('!traceback'):
         print('Logging message stack to discord... ( last 10 items )')
         await client.send_typing(message.channel)
-        temp_stack = stack.reverse()
+        temp_stack = stack
+        temp_stack.reverse()
         for item in range(9):
-            print(temp_stack[item])
-            await client.send_message(item)
+            await client.send_message(message.channel, str(temp_stack[item]))
         print('Stack dump complete')
         temp_stack = None
 
