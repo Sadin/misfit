@@ -9,7 +9,10 @@
 |__/      \_______/   \___/   \_______/|__/  |__/ \_______/|_______/
 ```
 
+# Dodge, Duck, Dip, Dive, and Dodge!
+
 A discord bot built on discord.py that is specialized to run the discord server of the Patchwork guild on WoW @ Trollbane.
+
 
 ### Commands
 
