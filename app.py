@@ -54,6 +54,8 @@ async def on_message(message):
         await client.send_typing(message.channel)
         await client.send_message(message.channel, 'Pong!')
 
+    # 
+
     # @everyone the server from whatever channel ( sent to #announcements )
     if message.content.startswith('!announce'):
         await asyncio.sleep(1)
@@ -83,4 +85,10 @@ async def on_message(message):
 async def on_error():
     print('Fatal Error')
 client.run('Mzk3NTU4OTUwNjcwNzYxOTg0.DSyFeA.V8CdO3o69Be8XUcFhAvhLddGYzQ')
+
+def parse_text(message):
+    
+    messageBody = message.rsplit(message)
+
+    return 
 
