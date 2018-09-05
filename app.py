@@ -54,9 +54,11 @@ async def on_message(message):
         await client.send_typing(message.channel)
         await client.send_message(message.channel, 'Pong!')
 
+    # @everyone the server from whatever channel ( sent to #announcements )
     if message.content.startswith('!announce'):
         await asyncio.sleep(1)
 
+    # ganggang related commands
     if message.content.startswith('!gg'):
 
         # Show bot is doing something
